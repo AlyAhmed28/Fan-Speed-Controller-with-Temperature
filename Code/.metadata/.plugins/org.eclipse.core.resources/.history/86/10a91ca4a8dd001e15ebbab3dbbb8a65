@@ -1,0 +1,84 @@
+/*
+ * Mini_Project3.c
+ *
+ *  Created on: 9 Mar 2024
+ *      Author: Lenovo
+ */
+
+#include"lm35.h"
+#include"adc.h"
+#include"lcd.h"
+#include"dcmotor.h"
+#include<util/delay.h>
+
+
+
+int main()
+{
+	uint8 temp;
+	ADC_ConfigType config = {F_CPU_8,INTERNAL};
+
+	LCD_init();
+	DCMotor_Init();
+
+	ADC_init(&config);
+
+	LCD_displayString("FAN is OFF");
+
+	LCD_displayStringRowColumn(1, 0, "Temp =");
+
+	while(1)
+	{
+		temp = LM35_getTemperature();
+
+		LCD_integerToString(temp);
+/*
+		if(temp < 30)
+		{
+			DCMotor_Rotate(STOP, 0);
+			LCD_displayStringRowColumn(0, 0, "FAN is OFF");
+			LCD_displayStringRowColumn(1, 0, "Temp =");
+			LCD_integerToString(temp);
+			LCD_displayCharacter(' ');
+			LCD_displayCharacter('C');
+		}
+
+		if((temp >= 30) && (temp < 60))
+		{
+			DCMotor_Rotate(CW, 25);
+			LCD_displayStringRowColumn(0, 0, "FAN is ON ");
+			LCD_displayStringRowColumn(1, 0, "Temp =");
+			LCD_integerToString(temp);
+			LCD_displayString(" C");
+		}
+
+		if((temp >= 60) && (temp < 90))
+		{
+			DCMotor_Rotate(CW, 50);
+			LCD_displayStringRowColumn(0, 0, "FAN is ON ");
+			LCD_displayStringRowColumn(1, 0, "Temp =");
+			LCD_integerToString(temp);
+			LCD_displayString(" C");
+		}
+
+		if((temp>=90)&&(temp<120))
+		{
+			DCMotor_Rotate(CW, 75);
+			LCD_displayStringRowColumn(0, 0, "FAN is ON ");
+			LCD_displayStringRowColumn(1, 0, "Temp =");
+			LCD_integerToString(temp);
+			LCD_displayString(" C");
+		}
+
+		if(temp>120)
+		{
+			DCMotor_Rotate(CW, 100);
+			LCD_displayStringRowColumn(0, 0, "FAN is ON ");
+			LCD_displayStringRowColumn(1, 0, "Temp =");
+			LCD_integerToString(temp);
+			LCD_displayCharacter('C');
+		}
+*/
+	}
+
+}

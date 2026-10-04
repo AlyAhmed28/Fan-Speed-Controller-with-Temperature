@@ -1,0 +1,31 @@
+/*
+ * Mini_Project3.c
+ *
+ *  Created on: 9 Mar 2024
+ *      Author: Lenovo
+ */
+
+#include"lm35.h"
+#include"adc.h"
+#include"lcd.h"
+#include"dcmotor.h"
+#include<util/delay.h>
+
+
+
+int main()
+{
+	ADC_ConfigType config = {INTERNAL,F_CPU_8};
+
+	LCD_init();
+
+	ADC_init(&config);
+
+
+
+	while(1)
+	{
+
+	}
+
+}

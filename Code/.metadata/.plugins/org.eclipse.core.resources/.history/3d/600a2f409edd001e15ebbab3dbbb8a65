@@ -1,0 +1,46 @@
+/*
+ * [FILE NAME]		:		adc.c
+ *
+ *
+ * [AUTHOR]			:		Aly Ahmed
+ *
+ *
+ * [FILE CREATED]	:		26/01/2024
+ *
+ *
+ * [DESCRIPTION]	:		Source File that include the functions definitions of ADC for AVR
+ *
+ */
+
+#include"adc.h"
+#include"gpio.h"
+#include"common_macros.h"
+#include<avr/io.h>
+
+
+
+void ADC_init(void)
+{
+
+	ADMUX = 0;
+
+	ADCSRA |= (1<<ADEN) | (1<<ADPS0) | (1<<ADPS1);
+
+}
+
+
+uint16 ADC_readChannel(uint8 channel)
+{
+	channel &= 0x07;
+	ADMUX &= 0xE0;
+
+	ADMUX = ADMUX | channel;
+
+	SET_BIT(ADCSRA,ADSC);
+
+	while(BIT_IS_CLEAR(ADCSRA,ADIF));
+
+	SET_BIT(ADCSRA,ADIF);
+
+	return ADC;
+}

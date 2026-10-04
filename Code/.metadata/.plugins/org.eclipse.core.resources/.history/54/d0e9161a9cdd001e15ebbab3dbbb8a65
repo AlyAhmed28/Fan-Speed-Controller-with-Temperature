@@ -1,0 +1,24 @@
+/*
+ * Mini_Project3.c
+ *
+ *  Created on: 9 Mar 2024
+ *      Author: Lenovo
+ */
+
+
+#include"dcmotor.h"
+
+
+
+int main()
+{
+
+	DCMotor_Init();
+
+	while(1)
+	{
+		DCMotor_Rotate(CW, 50);
+
+	}
+
+}

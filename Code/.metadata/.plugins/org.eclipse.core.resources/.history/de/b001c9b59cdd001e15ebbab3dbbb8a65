@@ -1,0 +1,27 @@
+/*
+ * Mini_Project3.c
+ *
+ *  Created on: 9 Mar 2024
+ *      Author: Lenovo
+ */
+
+
+#include"dcmotor.h"
+#include<util/delay.h>
+
+
+
+int main()
+{
+
+	DCMotor_Init();
+	_delay_ms(500);
+	DCMotor_Rotate(CW, 80);
+
+
+	while(1)
+	{
+
+	}
+
+}

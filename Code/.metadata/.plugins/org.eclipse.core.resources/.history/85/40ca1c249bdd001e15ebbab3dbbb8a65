@@ -1,0 +1,10 @@
+/*
+ * dcmotor.c
+ *
+ *  Created on: 9 Mar 2024
+ *      Author: Lenovo
+ */
+
+#include"dcmotor.h"
+#include"pwm.h"
+#include"gpio.h"

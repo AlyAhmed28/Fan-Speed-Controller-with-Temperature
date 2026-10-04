@@ -1,0 +1,38 @@
+/*
+ * [FILE NAME]		:		adc.h
+ *
+ *
+ * [AUTHOR]			:		Aly Ahmed
+ *
+ *
+ * [FILE CREATED]	:		26/01/2024
+ *
+ *
+ * [DESCRIPTION]	:		Header File that include the definitions and prototype of ADC for AVR
+ *
+ */
+
+#ifndef ADC_H_
+#define ADC_H_
+
+#include"std_types.h"
+
+
+/****************************************************************
+ * 						Definitions
+ ****************************************************************/
+
+#define ADC_MAXIMUM_VALUE				1023
+#define ADC_REF_VOLT_VALUE				5
+
+/****************************************************************
+ * 						Functions Prototypes
+ ****************************************************************/
+
+void ADC_init(void);
+
+uint16 ADC_readChannel(uint8 channel);
+
+
+
+#endif /* ADC_H_ */
